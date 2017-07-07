@@ -1,29 +1,21 @@
-$("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-     $("#menu-toggle-2").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled-2");
-        $('#menu ul').hide();
-    });
-
-     function initMenu() {
-      $('#menu ul').hide();
-      $('#menu ul').children('.current').parent().show();
-      //$('#menu ul:first').show();
-      $('#menu li a').click(
-        function() {
-          var checkElement = $(this).next();
-          if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-            return false;
-            }
-          if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-            $('#menu ul:visible').slideUp('normal');
-            checkElement.slideDown('normal');
-            return false;
-            }
-          }
-        );
-      }
-    $(document).ready(function() {initMenu();});
+angular.module("app").directive("navDir", function() {
+  console.log("navjs is listening")
+  return {
+     templateUrl: "./src/views/nav/nav.html"
+  //   , scope: {
+  //   }
+  //   , controller: function($scope, $state){
+  //     loginService.isLoggedin().then(res=>{
+  //       $scope.isLoggedin = res.data.isLoggedin
+  //     })
+  //     $scope.logout = function(){
+  //       $scope.isLoggedin = false;
+  //       loginService.loggedIn = false;
+  //     }
+  //
+  //   }
+  //   , link: function(scope, element, attrs) {
+  //
+  //   }
+  }
+})

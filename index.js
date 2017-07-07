@@ -13,7 +13,8 @@ app.use( bodyParser.json() )
 app.use( session(config.session) )
 app.use( express.static(__dirname + "/public") )
 
-massive( config.postgres).then(dbInstance => {
+massive( config.postgres)
+.then(dbInstance => {
   app.set('db', dbInstance)
 })
 /*
@@ -23,7 +24,16 @@ getAlluserdata
 getAllself
 */
 
-
+app.get("/api/alluserdata", function(req, res, next) {
+  const db = req.app.get('db')
+  db.getUser()
+  .then(userdata => {
+    res.status(200).json(users)
+  })
+  .catch(err => {
+    res.status(200),json(err)
+  })
+})
 
 
 
