@@ -1,41 +1,48 @@
-const express = require('express')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const massive = require('massive')
-const session = require('express-session')
-const controller = require('./data_controller.js')
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const massive = require('massive');
+const session = require('express-session');
+const dataController = require('./data_controller.js');
+const connectionString = "postgres://brobbiethao@localhost:5432/Life";
 
-const config = require('./config')
-const app = express()
+const config = require('./config');
+const app = express();
 
-app.use( cors() )
-app.use( bodyParser.json() )
-app.use( session(config.session) )
-app.use( express.static(__dirname + "/public") )
 
-massive( config.postgres)
-.then(dbInstance => {
+////////////////////           Server Begin      ////////////////////
+
+massive(connectionString)
+.then(function(dbInstance) {
   app.set('db', dbInstance)
-})
-/*
-getAllfamily
-getAllqol
-getAlluserdata
-getAllself
-*/
-
-app.get("/api/alluserdata", function(req, res, next) {
-  const db = req.app.get('db')
-  db.getUser()
-  .then(userdata => {
-    res.status(200).json(users)
-  })
-  .catch(err => {
-    res.status(200),json(err)
-  })
-})
+});
 
 
+app.use( session(config.session) );
+// masterRoutes(app)
+app.use( bodyParser.json() );
+app.use( '/', express.static(__dirname + "/public") );
+
+
+//-----------------------------------------------------------------//
+//-----------------        End Point Begin        -----------------//
+//                              //Get//                            //
+app.get("/api/allusers", dataController.getAllUsers);
+app.get("/api/user/:username", dataController.getUser);
+app.get("/api/life", dataController.getLife);
+
+
+
+//                              //POST//                           //
+app.post("/api/allusers", dataController.getAllUsers);
+// app.post("/api/qualityoflife", dataController.getQualityofLife);
+
+//-----------------         End Point End         -----------------//
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+////////////////////            Server End        ///////////////////
 
 app.listen(3000, function() {
   console.log("I hear it!")
