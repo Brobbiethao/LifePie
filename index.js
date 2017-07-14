@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const massive = require('massive');
-const session = require('express-session');
+// const session = require('express-session');
 const dataController = require('./data_controller.js');
 
 // const connectionString = "postgres://brobbiethao@localhost:5432/Life";
