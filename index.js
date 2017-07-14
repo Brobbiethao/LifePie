@@ -15,7 +15,7 @@ const app = express();
 
 ////////////////////           Server Begin      ////////////////////
 
-massive(process.env.DATABSE_URL)
+massive(process.env.DATABASE_URL)
 .then(function(dbInstance) {
   app.set('db', dbInstance)
 });
