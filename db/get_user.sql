@@ -1,3 +1,3 @@
 SELECT *
 FROM userdata
-WHERE username = $1
+WHERE profilename = $1

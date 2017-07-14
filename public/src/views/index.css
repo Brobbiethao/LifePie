@@ -1,0 +1,14 @@
+.timer {
+  text-align: center;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+}
+
+.morbid {
+  font-size: 30px;
+  color: red;
+  text-align: center;
+  border-style: solid;
+  border-color: red;
+}
