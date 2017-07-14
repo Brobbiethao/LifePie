@@ -39,7 +39,7 @@ app.use( '/', express.static(__dirname + "/public") );
 app.get("/api/allUsers", dataController.getAllUsers);
 app.get("/api/user/:profilename", dataController.getUser);
 app.get("/api/life", dataController.getLife);
-app.get("api/getProfile", dataController.getMe)
+// app.get("api/getProfile", dataController.getMe)
 
 
 //                              //POST//                           //
