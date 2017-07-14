@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
 const dataController = require('./data_controller.js');
+
 // const connectionString = "postgres://brobbiethao@localhost:5432/Life";
 
 // const config = require('./config');
@@ -52,6 +53,6 @@ app.post('api/createLife', dataController.createLife);
 //-----------------------------------------------------------------//
 ////////////////////            Server End        ///////////////////
 
-app.listen(3000, function() {
+app.listen(process.env.PORT, function() {
   console.log("I hear it!")
 })
