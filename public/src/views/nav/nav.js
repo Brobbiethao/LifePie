@@ -1,7 +1,5 @@
-angular.module("app").directive("navDir", function() {
+angular.module("app").directive("nav-Item", function() {
   console.log("navjs is listening")
-  return {
-     templateUrl: "./src/views/nav/nav.html"
   //   , scope: {
   //   }
   //   , controller: function($scope, $state){

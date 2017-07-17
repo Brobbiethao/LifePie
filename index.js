@@ -1,21 +1,19 @@
-require('dotenv').config(); // This is for Heroku
-
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const massive = require('massive');
-// const session = require('express-session');
+const session = require('express-session');
 const dataController = require('./data_controller.js');
 
-// const connectionString = "postgres://brobbiethao@localhost:5432/Life";
+const connectionString = "postgres://brobbiethao@localhost:5432/Life";
 
-// const config = require('./config');
+const config = require('./config');
 const app = express();
 
 
 ////////////////////           Server Begin      ////////////////////
 
-massive(process.env.DATABASE_URL)
+massive(connectionString)
 .then(function(dbInstance) {
   app.set('db', dbInstance)
 });
@@ -27,7 +25,7 @@ massive(process.env.DATABASE_URL)
   sig
 }) */
 
-// app.use( session(config.session) );
+app.use( session(config.session) );
 // masterRoutes(app)
 app.use( bodyParser.json() );
 app.use( '/', express.static(__dirname + "/public") );
@@ -38,13 +36,16 @@ app.use( '/', express.static(__dirname + "/public") );
 //                              //Get//                            //
 app.get("/api/allUsers", dataController.getAllUsers);
 app.get("/api/user/:profilename", dataController.getUser);
-app.get("/api/life", dataController.getLife);
-// app.get("api/getProfile", dataController.getMe)
+app.get("/api/lifepie", dataController.getPie);
+app.get("/api/allPie", dataController.getAllPie)
+// app.get("/api/userpie/:profilename", dataController.getUserPie);
+
+
 
 
 //                              //POST//                           //
 app.post("/api/createUser", dataController.createUser);
-app.post('api/createLife', dataController.createLife);
+app.post("/api/createLife", dataController.createLife);
 
 //-----------------         End Point End         -----------------//
 //-----------------------------------------------------------------//
@@ -53,6 +54,6 @@ app.post('api/createLife', dataController.createLife);
 //-----------------------------------------------------------------//
 ////////////////////            Server End        ///////////////////
 
-app.listen(process.env.PORT, function() {
+app.listen(3000, function() {
   console.log("I hear it!")
 })

@@ -8,7 +8,11 @@
   <script src="https://use.fontawesome.com/959ba0e4d0.js"></script>
   <link rel="stylesheet" href="./src/views/home/home.css">
   <link rel="stylesheet" href="./src/views/index.css">
-  <!-- <link rel="stylesheet" href="index.css"> -->
+  <link rel="stylesheet" href="./src/views/nav/nav.css">
+  <link rel="stylesheet" href="./src/views/animation/text.css">
+  <link rel="stylesheet" href="./src/views/formData/form.css">
+  <link rel="stylesheet" href="./src/views/login/life.css">
+
   <title>Lifecount</title>
 
   <!-- //                                   D3.JS                                            // -->
@@ -22,24 +26,11 @@
 
 </head>
 
-<body ng-controller="userCtrl">
-  <div class="container-fluid">
-    <div style="text-align: center">
-        <h4>Name:   {{ user[0].profilename}} </h4>
-        <h4>Age:    {{ user[0].age }}</h4>
-        <h4>Gender: {{ user[0].gender }}</h4>
-    </div>
+<body>
+    <!-- <clock></clock> -->
+    <nav-page></nav-page>
 
-    </div>
-    <p class="morbid">Expiration Clock
-    <p class="timer"><span id="YYYYMM"></span>
-      <br>
-      <span id="HHMMSS"></span>
-
-    <div id="pieChart"></div>
-
-
-  </div>
+    <!-- <div id="pieChart"></div> -->
 
   <!-- //                                    HTML START                                       // -->
 
@@ -72,7 +63,18 @@
 
   <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript" src="indexCtrl.js"></script>
-  <script type="text/javascript" src="indexservice.js"></script>
+  <script type="text/javascript" src="indexService.js"></script>
+  <script type="text/javascript" src="./src/views/home/homeCtrl.js"></script>
+  <script type="text/javascript" src="./src/views/home/homeService.js"></script>
+  <script type="text/javascript" src="./src/views/clock/clockCtrl.js"></script>
+  <script type="text/javascript" src="./src/views/clock/clockService.js"></script>
+  <script type="text/javascript" src="./src/views/nav/navCtrl.js"></script>
+  <script type="text/javascript" src="./src/views/animation/text.js"></script>
+  <script type="text/javascript" src="./src/views/formData/formCtrl.js"></script>
+  <script type="text/javascript" src="./src/views/pieviews/pieCtrl.js"></script>
+  <script type="text/javascript" src="./src/views/pieviews/pieService.js"></script>
+
+
 
 </body>
 

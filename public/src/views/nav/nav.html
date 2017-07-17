@@ -1,13 +1,54 @@
-<div class="pos-f-t">
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-inverse p-4">
-      <h4 class="text-white">Collapsed content</h4>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
-    </div>
-  </div>
-  <nav class="navbar navbar-inverse bg-inverse">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
+<nav class="navbar  navbar-inverse  navbar-fixed-top">
+ <div class="container">
+ <button type="button" class="navbar-toggle"
+ data-toggle="collapse"
+ data-target=".navbar-collapse"
+ >
+ <span class="sr-only"> Toggle navigation</span>
+ <span class="icon-bar"> </span>
+ <span class="icon-bar"> </span>
+ <span class="icon-bar"> </span>
+ </button>
+
+  <a class="navbar-brand" ui-sref="#">Your Life Quantified</a>
+
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+        <li class=""><a ui-sref="home">Home</a> </li>
+      <li> <a ui-sref="about">about</a> </li>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle"
+           data-toggle="dropdown"> Quality Of Life in Pie
+         <b class="caret"> </b>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="form"> Your Data Input Form</a> </li>
+            <li><a ui-sref="lifePie"> Life In Pie </a> </li>
+            <li><a ui-sref="miscPie"> Work & Life Pie </a> </li>
+            <li><a ui-sref="socialPie"> Social Life Pie</a> </li>
+            <li><a ui-sref="sleepPie"> Sleep Life Pie</a> </li>
+            <li><a ui-sref="miscPie"> Misc Life Pie</a> </li>
+          </ul>
+        </li>
+      </ul>
+      </div>
+ </div>
+</nav>
+<div class="container fluid">
+<ui-view></ui-view>
+
 </div>
+
+
+ <div class="navbar  navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+      <div class="navbar-text pull=left">
+     <p><a ui-sref="#" class="footer">Super Mega Evil INC. All rights reserved © 2017</a></p>
+    </div>
+
+  </div>
+  </div>
+
+
+
+
+</nav>

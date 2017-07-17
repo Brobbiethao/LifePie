@@ -1,6 +1,4 @@
 angular.module("app")
-.controller("homeCtrl", function() {
-  $scope.hometest = "testing123"
+    .controller("homeCtrl", function($scope, dbservice) {
 
-  
 })
